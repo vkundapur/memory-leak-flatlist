@@ -157,7 +157,7 @@ const App: () => Node = () => {
                     value={searchTerm}
                     platform={Platform.OS}
                 />
-                {isLoading && (
+                {isLoading && globalSearchResults.length <= 0 && (
                     <ActivityIndicator animating style={styles.loader} />
                 )}
                 {globalSearchResults.length > 0 && (
