@@ -18,7 +18,13 @@ import {
     useColorScheme,
     View,
 } from 'react-native';
-import { Button, SearchBar, useTheme } from 'react-native-elements';
+import {
+    Button,
+    ListItem,
+    SearchBar,
+    Text,
+    useTheme,
+} from 'react-native-elements';
 import { searchBooks } from './api/GoogleBooksService';
 import HttpClient from './network/HttpClient';
 import BookCard from './components/BookCard';
@@ -137,7 +143,23 @@ const App: () => Node = () => {
     };
 
     const renderGlobalItems = ({ item }) => {
-        return <BookCard book={item} />;
+        // return <BookCard book={item} key={item.id} />;
+        return (
+            <ListItem
+                style={{ flexDirection: 'column' }}
+                bottomDivider
+                key={item.id}>
+                <ListItem.Content>
+                    <ListItem.Title>{item.title}</ListItem.Title>
+                    {item.authors && item.authors.length && (
+                        <ListItem.Subtitle>
+                            {item.authors.toString()}
+                        </ListItem.Subtitle>
+                    )}
+                </ListItem.Content>
+                <ListItem.Chevron />
+            </ListItem>
+        );
     };
 
     const { theme } = useTheme();
@@ -163,11 +185,11 @@ const App: () => Node = () => {
                 {globalSearchResults.length > 0 && (
                     <FlatList
                         removeClippedSubviews
-                        columnWrapperStyle={styles.columnWrapper}
+                        // columnWrapperStyle={styles.columnWrapper}
                         data={globalSearchResults}
-                        numColumns={3}
+                        // numColumns={3}
                         showsHorizontalScrollIndicator={false}
-                        keyExtractor={item => item + item.id}
+                        keyExtractor={item => item.id}
                         renderItem={renderGlobalItems}
                         ListFooterComponent={
                             <>
