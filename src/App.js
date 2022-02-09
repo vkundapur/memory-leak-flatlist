@@ -145,10 +145,7 @@ const App: () => Node = () => {
     const renderGlobalItems = ({ item }) => {
         // return <BookCard book={item} key={item.id} />;
         return (
-            <ListItem
-                style={{ flexDirection: 'column' }}
-                bottomDivider
-                key={item.id}>
+            <ListItem style={{ flexDirection: 'column' }} bottomDivider>
                 <ListItem.Content>
                     <ListItem.Title>{item.title}</ListItem.Title>
                     {item.authors && item.authors.length && (
@@ -189,7 +186,7 @@ const App: () => Node = () => {
                         data={globalSearchResults}
                         // numColumns={3}
                         showsHorizontalScrollIndicator={false}
-                        keyExtractor={item => item.id}
+                        keyExtractor={item => item + item.id}
                         renderItem={renderGlobalItems}
                         ListFooterComponent={
                             <>
