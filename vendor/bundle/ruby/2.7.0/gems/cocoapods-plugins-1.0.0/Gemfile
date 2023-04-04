@@ -14,5 +14,5 @@ group :development do
   gem 'webmock'
 
   gem 'codeclimate-test-reporter', :require => nil
-  gem 'rubocop'
+  gem 'rubocop', '>= 0.49.0'
 end
