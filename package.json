@@ -13,7 +13,7 @@
     "axios": "^0.25.0",
     "prop-types": "^15.8.1",
     "react": "17.0.2",
-    "react-native": "0.67.2",
+    "react-native": "0.73.0",
     "react-native-elements": "^3.4.2",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-size-matters": "^0.4.0",
